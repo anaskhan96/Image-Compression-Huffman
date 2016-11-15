@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DS project</title>
+    <link href="{{ url_for('static', filename='styles/ind.css') }}" rel="stylesheet"/>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript">
+    	/*function foo(){
+    		alert('Called');
+    		$.ajax({
+    			type: 'POST',
+    			url: '/compressed',
+    			contentType:'application/json;charset=UTF-8',
+        		dataType:'json',
+        		data: JSON.stringify({'hello':'heyy'}),
+        		success: function(response){
+        			console.log(response);
+	        		},
+        		error: function(error){
+        			console.log(error);
+        		}
+    		});
+    	}*/
+    </script>
+    <style>
+    .c_5{
+      position: absolute;
+      top:150px;
+      left: 430px;
+    }
+    .c_6{
+      position: absolute;
+      top: 150px;
+      left: 330px;
+    }
+    #txtToUpload{
+      position: absolute;
+      top: 150px;
+      left: 230px;
+    }
+    </style>
+
+  </head>
+  <body background="{{ url_for('static',filename='bac_1.jpg') }}">
+
+    <div class="c_1">
+      <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+      <p>Select image to upload:</p>
+      <p class="c_2"><input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="{{ u }}" name="submit"></p>
+      </form>
+      <p class="p_1"> ITS ONLY LOGICAL TO:</p>
+      <form action="/compressed" method="post">
+    <button class="c_3">COMPRESS!</button>
+    </form>
+    <form action='/decomupload' method="post" enctype="multipart/form-data">
+    <input type="file" name="txtToUpload" id="txtToUpload">
+    <input type="submit" value="{{ l }}" name="submit" class=c_6>
+    </form>
+    <form action="/decompressed" method="post">
+    <button class="c_5">DECOMPRESS!</button>
+    </form>
+    <div class=c_4><img src="{{ url_for('static', filename='ws.png') }}" height="180px" width="400px"></div>
+</div>
+
+
+
+
+
+  </body>
+</html>
